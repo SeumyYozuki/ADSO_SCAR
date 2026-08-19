@@ -1,0 +1,141 @@
+/* Estilos básicos para el Dashboard */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+/* Estructura Principal */
+.contenedor-dashboard {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Superior */
+.header-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border-bottom: 2px solid #ccc;
+}
+
+.nav-superior ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+.nav-superior a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* Cuerpo: Sidebar + Main */
+.cuerpo-principal {
+    display: flex;
+    flex: 1;
+}
+
+/* Sidebar (Barra Izquierda) */
+.sidebar {
+    width: 250px;
+    background-color: #e2e2e2;
+    border-right: 2px solid #ccc;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.perfil-usuario {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border: 1px solid #999;
+    padding: 10px;
+    background: #fff;
+}
+
+.avatar-box img {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #000;
+    border-radius: 50%;
+}
+
+.sidebar-menu .modulo-item {
+    border: 1px solid #999;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #fff;
+}
+
+.sidebar-menu h3 {
+    font-size: 16px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.sidebar-menu ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.sidebar-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 13px;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    text-align: center;
+    padding-top: 10px;
+    border-top: 1px solid #aaa;
+}
+
+/* Área de contenido */
+.contenido-main {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.breadcrumb-main {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.mensaje-bienvenida {
+    margin-top: 50px;
+    border: 2px solid #000;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fafafa;
+}
+
+/* Footer */
+.footer-dashboard {
+    background-color: #dcdcdc;
+    padding: 10px 20px;
+    border-top: 2px solid #ccc;
+}
+
+.footer-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
