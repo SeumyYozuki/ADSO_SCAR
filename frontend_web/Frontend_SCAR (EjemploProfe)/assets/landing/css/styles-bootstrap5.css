@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+/* Clases Especiales */
+.titulo{
+    height: 50px;
+}
+/* Navegador */
+nav {    
+    height: 50px;
+}
+.logo{}
+.menu{}
+.ingreso{}
+/* Encabezado */
+header, section   {
+    height: 600px;
+}
+/* Portafolio */
+.port-col{}
+.nosotros{}
+/* Nosotros */
+.nos-fila{
+    height: 200px;
+}
+.nos-fila-col-izq,
+.nos-fila-col-der{
+}
+.nos-fila-col-cnt{}
+/* Contáctenos */
+.cont-col{}
+.cont-col-fila-arr{
+    height: 70%;
+}
+.cont-col-fila-abj{
+    height: 30%;
+}
+/* Pie de Página */
+footer {
+    height: 50px;
+}
+
+/* --------- TABLET ------------- */
+@media (max-width: 992px) {
+    /* Navegador */
+    nav {
+        height: 150px;
+    }
+    .logo{
+        height: 100px;
+    }
+    .menu{
+        height: 50px;
+    }
+    .ingreso{
+        height: 50px;
+    }
+}
+
+/* --------- CELULAR ------------- */
+@media (max-width: 768px) {
+    .logo{
+        height: 50px;
+    }
+}
