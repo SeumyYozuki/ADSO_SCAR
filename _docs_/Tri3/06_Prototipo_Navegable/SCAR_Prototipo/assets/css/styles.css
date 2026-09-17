@@ -1,0 +1,312 @@
+/* ==========================================================================
+   PROYECTO SCAR - SISTEMA DE CONTROL, ADMINISTRACIÓN Y REGISTRO (DULCE DIP)
+   HOJA DE ESTILOS GENERAL Y UNIFICADA (styles.css)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. VARIABLES DE COLOR Y DISEÑO (PALETA OFICIAL)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Paleta de Colores Oficial */
+  --scar-gold: #C6AF69;         /* Dorado / Ocre (Acentos, títulos, labels) */
+  --scar-slate-grey: #303A44;   /* Gris Pizarra (Tarjetas, contenedores, inputs) */
+  --scar-forest-green: #2D5B25; /* Verde Bosque (Botones primarios, acciones) */
+  --scar-dark-bg: #182825;      /* Verde Oscuro / Negro (Fondo principal y sidebar) */
+  --scar-off-white: #F2F2F2;    /* Blanco Suave (Texto principal e íconos) */
+
+  /* Variaciones e Integraciones */
+  --scar-green-hover: #23491E;
+  --scar-green-active: #1B3B17;
+  --scar-gold-hover: #D4C07B;
+  --scar-input-bg: #1E2830;
+  --scar-border-color: #3E4B56;
+  --scar-card-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  
+  /* Fuentes e Identidad */
+  --scar-font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+  --scar-radius: 12px;
+  --scar-radius-sm: 8px;
+  --scar-radius-lg: 18px;
+}
+
+/* --------------------------------------------------------------------------
+   2. REGLAS GENERALES Y BODY
+   -------------------------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--scar-dark-bg);
+  color: var(--scar-off-white);
+  font-family: var(--scar-font-family);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Scrollbar Personalizado Oscuro */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scar-dark-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scar-slate-grey);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scar-gold);
+}
+
+/* --------------------------------------------------------------------------
+   3. TIPOGRAFÍA Y TEXTOS DE ACENTO
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--scar-off-white);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.text-gold, 
+.scar-title-gold,
+label.scar-label {
+  color: var(--scar-gold) !important;
+}
+
+.text-muted-scar {
+  color: #A0ACB7 !important;
+}
+
+.scar-brand-title {
+  color: var(--scar-gold);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.scar-subtitle {
+  color: var(--scar-off-white);
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* --------------------------------------------------------------------------
+   4. TARJETAS Y CONTENEDORES (CARDS)
+   -------------------------------------------------------------------------- */
+.card, 
+.scar-card {
+  background-color: var(--scar-slate-grey) !important;
+  border: 1px solid var(--scar-border-color) !important;
+  border-radius: var(--scar-radius) !important;
+  box-shadow: var(--scar-card-shadow);
+  color: var(--scar-off-white);
+  backdrop-filter: blur(5px);
+}
+
+.scar-card-header {
+  border-bottom: 1px solid var(--scar-border-color);
+  padding: 1.25rem 1.5rem;
+  background-color: rgba(24, 40, 37, 0.3);
+}
+
+/* Tarjeta especial de Login / Auth */
+.scar-auth-card {
+  background-color: rgba(48, 58, 68, 0.92) !important;
+  border: 1px solid rgba(198, 175, 105, 0.3) !important;
+  border-radius: var(--scar-radius-lg) !important;
+  padding: 2.5rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+/* --------------------------------------------------------------------------
+   5. FORMULARIOS E INPUTS
+   -------------------------------------------------------------------------- */
+.form-label, 
+label {
+  color: var(--scar-gold);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+}
+
+.form-control, 
+.form-select, 
+.scar-input {
+  background-color: var(--scar-input-bg) !important;
+  border: 1px solid var(--scar-border-color) !important;
+  color: var(--scar-off-white) !important;
+  border-radius: var(--scar-radius-sm) !important;
+  padding: 0.75rem 1rem;
+  transition: all 0.25s ease-in-out;
+}
+
+.form-control::placeholder {
+  color: #788796 !important;
+}
+
+.form-control:focus, 
+.form-select:focus, 
+.scar-input:focus {
+  border-color: var(--scar-gold) !important;
+  box-shadow: 0 0 0 0.25rem rgba(198, 175, 105, 0.25) !important;
+  outline: none;
+}
+
+/* --------------------------------------------------------------------------
+   6. BOTONES Y ACCIONES
+   -------------------------------------------------------------------------- */
+.btn-primary, 
+.btn-success, 
+.scar-btn-primary {
+  background: linear-gradient(180deg, #366B2D 0%, var(--scar-forest-green) 100%) !important;
+  border: 1px solid #3E7334 !important;
+  color: #FFFFFF !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  border-radius: var(--scar-radius-sm);
+  padding: 0.75rem 1.5rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(45, 91, 37, 0.4);
+}
+
+.btn-primary:hover, 
+.btn-success:hover, 
+.scar-btn-primary:hover {
+  background: linear-gradient(180deg, #2D5B25 0%, var(--scar-green-hover) 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(45, 91, 37, 0.6);
+}
+
+.btn-primary:active, 
+.scar-btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Botón secundario Dorado / Outline */
+.btn-outline-gold,
+.scar-btn-gold {
+  background: transparent !important;
+  border: 1px solid var(--scar-gold) !important;
+  color: var(--scar-gold) !important;
+  font-weight: 600;
+  border-radius: var(--scar-radius-sm);
+  padding: 0.6rem 1.2rem;
+  transition: all 0.25s ease;
+}
+
+.btn-outline-gold:hover,
+.scar-btn-gold:hover {
+  background-color: var(--scar-gold) !important;
+  color: var(--scar-dark-bg) !important;
+  transform: translateY(-2px);
+}
+
+/* Enlaces */
+a, .scar-link {
+  color: var(--scar-gold);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover, .scar-link:hover {
+  color: var(--scar-gold-hover);
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   7. LAYOUT PRINCIPAL (NAVBAR Y SIDEBAR NAVEGABLE)
+   -------------------------------------------------------------------------- */
+.scar-navbar {
+  background-color: var(--scar-dark-bg) !important;
+  border-bottom: 1px solid var(--scar-border-color);
+  padding: 0.8rem 1.5rem;
+}
+
+.scar-sidebar {
+  background-color: #121F1D !important;
+  border-right: 1px solid var(--scar-border-color);
+  min-height: 100vh;
+  padding-top: 1.5rem;
+}
+
+.scar-sidebar .nav-link {
+  color: var(--scar-off-white);
+  padding: 0.8rem 1.25rem;
+  border-radius: var(--scar-radius-sm);
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.scar-sidebar .nav-link:hover {
+  background-color: rgba(198, 175, 105, 0.15);
+  color: var(--scar-gold);
+}
+
+.scar-sidebar .nav-link.active {
+  background-color: var(--scar-forest-green);
+  color: #FFFFFF;
+  font-weight: 700;
+  border-left: 4px solid var(--scar-gold);
+}
+
+/* --------------------------------------------------------------------------
+   8. TABLAS Y BADGES (MÓDULOS DE DATOS)
+   -------------------------------------------------------------------------- */
+.table-dark, 
+.scar-table {
+  background-color: var(--scar-slate-grey) !important;
+  color: var(--scar-off-white) !important;
+  border-color: var(--scar-border-color) !important;
+  border-radius: var(--scar-radius-sm);
+  overflow: hidden;
+}
+
+.scar-table th {
+  background-color: #232C35 !important;
+  color: var(--scar-gold) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--scar-border-color) !important;
+}
+
+.scar-table td {
+  vertical-align: middle;
+  border-color: var(--scar-border-color) !important;
+}
+
+/* Badges de estado */
+.badge-scar-success {
+  background-color: var(--scar-forest-green);
+  color: #FFFFFF;
+}
+
+.badge-scar-warning {
+  background-color: var(--scar-gold);
+  color: var(--scar-dark-bg);
+  font-weight: 700;
+}
+
+.badge-scar-danger {
+  background-color: #8C2323;
+  color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   9. AISLAMIENTO OPCIONAL POR MÓDULO (RECOMENDACIÓN DEL PROFESOR)
+   -------------------------------------------------------------------------- */
+.mod-auth { background-color: var(--scar-dark-bg); }
+.mod-users .card-header { border-left: 4px solid var(--scar-gold); }
+.mod-inventory .card-header { border-left: 4px solid var(--scar-forest-green); }
+.mod-deliveries .card-header { border-left: 4px solid #3B71CA; }
+.mod-sales .card-header { border-left: 4px solid var(--scar-gold); }
