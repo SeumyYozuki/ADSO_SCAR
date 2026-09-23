@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - SCAR Dulce Dip</title>
+    
+    <!-- Bootstrap 5 CSS & Iconos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Estilos SCAR -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    
+    <style>
+        body {
+            background-color: #1A2421;
+            color: #E2E8F0;
+        }
+        .sidebar {
+            width: 260px;
+            background-color: #121A18;
+            min-height: 100vh;
+            border-right: 1px solid rgba(198, 175, 105, 0.2);
+        }
+        .nav-link-custom {
+            color: #CBD5E1;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .nav-link-custom:hover, .nav-link-custom.active {
+            background-color: #2D5B25;
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+        .stat-card {
+            background-color: #24302C;
+            border: 1px solid rgba(198, 175, 105, 0.25);
+            border-radius: 12px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="d-flex">
+        
+        <!-- ============================================================ -->
+        <!-- BARRA LATERAL (SIDEBAR)                                      -->
+        <!-- ============================================================ -->
+        <aside class="sidebar d-none d-md-flex flex-column justify-content-between p-3 position-fixed top-0 start-0 bottom-0 z-3">
+            <div>
+                <!-- Brand / Logo -->
+                <div class="d-flex align-items-center gap-2 px-2 py-3 mb-4 border-bottom border-secondary">
+                    <img src="../../assets/img/logo.png" alt="Logo SCAR" width="42" height="42" class="rounded-circle border border-warning" onerror="this.src='https://via.placeholder.com/42/2D5B25/C6AF69?text=DD'">
+                    <div>
+                        <h6 class="fw-bold mb-0 text-light" style="color: #C6AF69 !important;">Sistema SCAR</h6>
+                        <small class="text-warning opacity-75">Panel Admin</small>
+                    </div>
+                </div>
+
+                <!-- Menú de Navegación -->
+                <nav>
+                    <a href="#dashboard" class="nav-link-custom active"><i class="bi bi-speedometer2 fs-5" style="color: #C6AF69;"></i> Dashboard General</a>
+                    <a href="#usuarios" class="nav-link-custom"><i class="bi bi-people fs-5"></i> Gestión de Usuarios</a>
+                    <a href="#productos" class="nav-link-custom"><i class="bi bi-box-seam fs-5"></i> Catálogo & Productos</a>
+                    <a href="#ventas" class="nav-link-custom"><i class="bi bi-cart-check fs-5"></i> Control de Ventas</a>
+                    <a href="#domicilios" class="nav-link-custom"><i class="bi bi-truck fs-5"></i> Domicilios & Ruta</a>
+                    <a href="#reportes" class="nav-link-custom"><i class="bi bi-bar-chart-line fs-5"></i> Reportes Gráficos</a>
+                </nav>
+            </div>
+
+            <!-- Usuario Logueado & Salida -->
+            <div class="border-top border-secondary pt-3 px-2">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                    <i class="bi bi-person-circle fs-3 text-warning"></i>
+                    <div>
+                        <div class="fw-bold text-light small">Doña Neila (Admin)</div>
+                        <small class="text-light opacity-50" style="font-size: 11px;">admin@dulcedip.com</small>
+                    </div>
+                </div>
+                <a href="../auth/login.html" class="btn btn-outline-danger btn-sm w-100 mt-2">
+                    <i class="bi bi-box-arrow-left me-1"></i> Cerrar Sesión
+                </a>
+            </div>
+        </aside>
+
+        <!-- ============================================================ -->
+        <!-- CONTENIDO PRINCIPAL                                          -->
+        <!-- ============================================================ -->
+        <main class="flex-grow-1 ms-md-auto p-4" style="margin-left: 260px; min-width: 0;">
+            
+            <!-- Navbar Superior -->
+            <header class="d-flex justify-content-between align-items-center mb-4 bg-dark p-3 rounded-3 border border-secondary">
+                <div>
+                    <h4 class="fw-bold text-light mb-0">Panel de Control Principal</h4>
+                    <small class="text-light opacity-75">Bienvenido Doña Neila • Dulce Dip SCAR v3.1</small>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <span class="badge bg-success px-3 py-2"><i class="bi bi-circle-fill me-1 fs-6" style="font-size: 8px !important;"></i> Sistema En Línea</span>
+                    <a href="../../index.html" class="btn btn-sm btn-outline-warning" target="_blank"><i class="bi bi-globe me-1"></i> Ver Sitio Público</a>
+                </div>
+            </header>
+
+            <!-- TARJETAS DE MÉTRICAS CLAVE (KPIs) -->
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-3 mb-4">
+                <div class="col">
+                    <div class="stat-card">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="text-light opacity-75 small">Ventas de Hoy</span>
+                            <i class="bi bi-currency-dollar fs-3 text-warning"></i>
+                        </div>
+                        <h3 class="fw-bold text-light mb-0" style="color: #C6AF69 !important;">$450.000 COP</h3>
+                        <small class="text-success"><i class="bi bi-graph-up-arrow me-1"></i> +12% vs. ayer</small>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="stat-card">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="text-light opacity-75 small">Productos en Stock</span>
+                            <i class="bi bi-boxes fs-3 text-info"></i>
+                        </div>
+                        <h3 class="fw-bold text-light mb-0">180 Unidades</h3>
+                        <small class="text-light opacity-50">5 Categorías de dulce</small>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="stat-card">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="text-light opacity-75 small">Usuarios Registrados</span>
+                            <i class="bi bi-people-fill fs-3 text-primary"></i>
+                        </div>
+                        <h3 class="fw-bold text-light mb-0">34 Usuarios</h3>
+                        <small class="text-light opacity-50">4 Roles configurados</small>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="stat-card">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="text-light opacity-75 small">Domicilios Pendientes</span>
+                            <i class="bi bi-truck fs-3 text-danger"></i>
+                        </div>
+                        <h3 class="fw-bold text-light mb-0">5 Envíos</h3>
+                        <small class="text-warning"><i class="bi bi-clock-history me-1"></i> Requieren asignación</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLA DE GESTIÓN DE PRODUCTOS E INVENTARIO -->
+            <div class="card bg-dark border-secondary text-light mb-4">
+                <div class="card-header bg-dark border-secondary d-flex justify-content-between align-items-center py-3">
+                    <h5 class="fw-bold mb-0 text-warning"><i class="bi bi-box-seam me-2"></i>Gestión de Catálogo e Inventario</h5>
+                    <button class="btn btn-sm text-white fw-bold px-3" style="background-color: #2D5B25; border: 1px solid #C6AF69;" data-bs-toggle="modal" data-bs-target="#modalNuevoProducto">
+                        <i class="bi bi-plus-circle me-1"></i> Nuevo Producto
+                    </button>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-dark table-hover mb-0 align-middle">
+                            <thead>
+                                <tr class="text-secondary small">
+                                    <th>SKU</th>
+                                    <th>Producto</th>
+                                    <th>Categoría</th>
+                                    <th>Precio</th>
+                                    <th>Stock</th>
+                                    <th>Estado</th>
+                                    <th class="text-center">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="badge bg-secondary">DUL-QC-001</span></td>
+                                    <td>
+                                        <div class="fw-bold">Queso Crema Feijoa</div>
+                                        <small class="text-light opacity-50">Frasco 130g</small>
+                                    </td>
+                                    <td>Queso Crema</td>
+                                    <td class="fw-bold text-warning">$12.000 COP</td>
+                                    <td>50 und</td>
+                                    <td><span class="badge bg-success">Disponible</span></td>
+                                    <td class="text-center">
+                                        <button class="btn btn-sm btn-outline-info me-1"><i class="bi bi-pencil"></i></button>
+                                        <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge bg-secondary">DUL-QC-002</span></td>
+                                    <td>
+                                        <div class="fw-bold">Queso Crema Durazno</div>
+                                        <small class="text-light opacity-50">Frasco 130g</small>
+                                    </td>
+                                    <td>Queso Crema</td>
+                                    <td class="fw-bold text-warning">$12.000 COP</td>
+                                    <td>45 und</td>
+                                    <td><span class="badge bg-success">Disponible</span></td>
+                                    <td class="text-center">
+                                        <button class="btn btn-sm btn-outline-info me-1"><i class="bi bi-pencil"></i></button>
+                                        <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge bg-secondary">DUL-QC-003</span></td>
+                                    <td>
+                                        <div class="fw-bold">Queso Crema Café</div>
+                                        <small class="text-light opacity-50">Frasco 130g</small>
+                                    </td>
+                                    <td>Edición Especial</td>
+                                    <td class="fw-bold text-warning">$13.000 COP</td>
+                                    <td>30 und</td>
+                                    <td><span class="badge bg-success">Disponible</span></td>
+                                    <td class="text-center">
+                                        <button class="btn btn-sm btn-outline-info me-1"><i class="bi bi-pencil"></i></button>
+                                        <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge bg-secondary">DUL-SF-001</span></td>
+                                    <td>
+                                        <div class="fw-bold">Salsa de Maracuyá</div>
+                                        <small class="text-light opacity-50">Envase 200g</small>
+                                    </td>
+                                    <td>Salsa Frutal</td>
+                                    <td class="fw-bold text-warning">$8.000 COP</td>
+                                    <td>25 und</td>
+                                    <td><span class="badge bg-success">Disponible</span></td>
+                                    <td class="text-center">
+                                        <button class="btn btn-sm btn-outline-info me-1"><i class="bi bi-pencil"></i></button>
+                                        <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- MODAL NUEVO PRODUCTO -->
+    <div class="modal fade" id="modalNuevoProducto" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-light border-warning">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title fw-bold text-warning"><i class="bi bi-plus-circle me-2"></i>Registrar Nuevo Dulce / Producto</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formProducto">
+                        <div class="mb-3">
+                            <label class="form-label small">Nombre del Producto</label>
+                            <input type="text" class="form-control bg-secondary text-light border-0" placeholder="Ej: Queso Crema Arazá" required>
+                        </div>
+                        <div class="row g-2 mb-3">
+                            <div class="col-6">
+                                <label class="form-label small">Código SKU</label>
+                                <input type="text" class="form-control bg-secondary text-light border-0" placeholder="DUL-QC-004" required>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label small">Precio COP</label>
+                                <input type="number" class="form-control bg-secondary text-light border-0" placeholder="12000" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small">Stock Inicial</label>
+                            <input type="number" class="form-control bg-secondary text-light border-0" value="30" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success fw-bold" onclick="alert('Producto guardado exitosamente en el catálogo');" data-bs-dismiss="modal">Guardar Producto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
