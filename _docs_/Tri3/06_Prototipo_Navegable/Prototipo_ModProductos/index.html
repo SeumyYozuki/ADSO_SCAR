@@ -3,313 +3,390 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dulce Dip - Catálogo Público & Sistema SCAR</title>
-    
-    <!-- 1. Bootstrap 5 CSS (Local + CDN de respaldo) -->
+    <title>Dulce Dip | Queso Crema Artesanal de Frutas</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Iconos de Bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    
-    <!-- 2. Estilos Globales SCAR -->
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="icon" type="image/png" href="assets/img/Logo_SCAR2.0.png" />  
 </head>
-<body class="mod-public">
+<body>
 
-    <!-- ============================================================ -->
-    <!-- BARRA DE NAVEGACIÓN PRINCIPAL (NAVBAR)                        -->
-    <!-- ============================================================ -->
-    <nav class="navbar navbar-expand-lg border-bottom border-warning border-opacity-25 sticky-top" style="background-color: var(--scar-bg-dark);">
+    <!-- NAVBAR PUBLICO CON ESTADO DINAMICO DE USUARIO/CLIENTE -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border-bottom border-warning">
         <div class="container">
-            <!-- Logo y Marca Dulce Dip / SCAR -->
-            <a class="navbar-brand d-flex align-items-center text-light fw-bold" href="index.html">
-                <img src="assets/img/logo.png" alt="Dulce Dip Logo" width="40" height="40" class="me-2 rounded-circle border border-warning" onerror="this.src='https://via.placeholder.com/40/2D5B25/C6AF69?text=DD'">
-                <span style="color: var(--scar-gold-accent);">Dulce Dip</span>
-                <span class="badge bg-secondary ms-2 fs-6 opacity-75">SCAR</span>
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <img src="assets/img/Logo empresa.jpg" alt="Logo Dulce Dip" width="40" height="40" class="rounded-circle border border-warning" onerror="this.src='https://via.placeholder.com/40/2D5B25/C6AF69?text=DD'">
+                <span class="fw-bold fs-4 text-warning">Dulce Dip</span>
             </a>
-
-            <!-- Botón Hamburguesa para vista móvil -->
-            <button class="navbar-toggler border-warning text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarPublic" aria-controls="navbarPublic" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="bi bi-list fs-2" style="color: var(--scar-gold-accent);"></i>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navPublic">
+                <span class="navbar-toggler-icon"></span>
             </button>
-
-            <!-- Contenido del Menú Navbar -->
-            <div class="collapse navbar-collapse" id="navbarPublic">
-                <!-- Buscador rápido de productos en la parte superior -->
-                <form class="d-flex mx-auto my-2 my-lg-0 w-50" role="search">
-                    <div class="input-group">
-                        <span class="input-group-text bg-dark border-secondary text-warning"><i class="bi bi-search"></i></span>
-                        <input class="form-control bg-dark text-light border-secondary" type="search" placeholder="Buscar dulce de feijoa, durazno, maracuyá..." aria-label="Buscar">
-                    </div>
-                </form>
-
-                <!-- Enlaces de navegación y Botón de Inicio de Sesión -->
-                <ul class="navbar-nav ms-auto align-items-center gap-2">
-                    <li class="nav-item">
-                        <a class="nav-link text-light active fw-semibold" href="#catalogo"><i class="bi bi-grid-fill me-1" style="color: var(--scar-gold-accent);"></i> Catálogo</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light opacity-75" href="#nosotros">Nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light opacity-75" href="#contacto">Contacto</a>
-                    </li>
-                    <li class="nav-item ms-lg-2">
-                        <a href="pages/auth/login.html" class="btn text-white fw-bold px-3 py-2 shadow-sm" style="background: linear-gradient(180deg, var(--scar-green-main) 0%, var(--scar-green-hover) 100%); border: 1px solid var(--scar-gold-accent);">
-                            <i class="bi bi-person-lock me-1"></i> Iniciar Sesión
-                        </a>
-                    </li>
+            <div class="collapse navbar-collapse" id="navPublic">
+                <ul class="navbar-nav me-auto ms-3 mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="#cat130">Frascos 130g ($10k)</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cat230">Frascos 230g ($20k)</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#combos">Combos Especiales</a></li>
                 </ul>
+                
+                <!-- HEADER DERECHA: CAMBIA SEGUN SI EL CLIENTE INICIO SESION -->
+                <div class="d-flex align-items-center gap-3" id="authHeaderArea">
+                    <!-- Estado Por Defecto (Invitado / Sin Iniciar Sesión) -->
+                    <button class="btn btn-outline-warning btn-sm position-relative" data-bs-toggle="modal" data-bs-target="#modalCarrito">
+                        <i class="bi bi-cart3 fs-5"></i> Carrito
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCount">0</span>
+                    </button>
+                    <a href="pages/auth/login.html" class="btn btn-success btn-sm fw-bold px-3" id="btnLoginNav">
+                        <i class="bi bi-person-lock me-1"></i> Iniciar Sesión
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- ============================================================ -->
-    <!-- BANNER HERO PRINCIPAL                                        -->
-    <!-- ============================================================ -->
-    <header class="py-5 text-center position-relative overflow-hidden" style="background: linear-gradient(135deg, #182825 0%, #303A44 100%); border-bottom: 2px solid var(--scar-gold-accent);">
-        <div class="container py-4 position-relative z-1">
-            <span class="badge rounded-pill px-3 py-2 mb-3 text-dark fw-bold" style="background-color: var(--scar-gold-accent);">
-                <i class="bi bi-stars"></i> Quesos Crema Artesanales 100% Naturales
-            </span>
-            <h1 class="display-4 fw-extrabold text-light mb-3">
-                Sabor Natural <span style="color: var(--scar-gold-accent);">Hecho con Magia y Pasión</span>
-            </h1>
-            <p class="lead text-light opacity-75 mx-auto mb-4" style="max-width: 720px;">
-                Bienvenido a Dulce Dip. Disfruta de la perfecta combinación entre la suavidad del queso crema y el sabor único de nuestras frutas colombianas seleccionadas.
-            </p>
+    <!-- HERO BANNER -->
+    <section class="hero-banner text-center">
+        <div class="container">
+            <span class="badge bg-warning text-dark fw-bold px-3 py-2 mb-3">100% Artesanal • Fruta Real</span>
+            <h1 class="display-4 fw-bold text-light mb-2">Queso Crema con Dulce de Frutas</h1>
+            <p class="lead text-light opacity-90 mb-4">El equilibrio perfecto entre la suavidad del queso crema y el sabor de frutas colombianas de alta calidad.</p>
             <div class="d-flex justify-content-center gap-3">
-                <a href="#catalogo" class="btn btn-lg fw-bold text-white px-4" style="background-color: var(--scar-green-main); border: 1px solid var(--scar-gold-accent);">
-                    <i class="bi bi-bag-check me-2"></i> Ver Catálogo
-                </a>
-                <a href="pages/auth/login.html" class="btn btn-lg btn-outline-light px-4">
-                     Acceso Sistema SCAR
-                </a>
+                <a href="#cat130" class="btn btn-success btn-lg fw-bold border-warning px-4">Ver Catálogo</a>                
             </div>
         </div>
-    </header>
+    </section>
 
-    <!-- ============================================================ -->
-    <!-- SECCIÓN DE CATÁLOGO PÚBLICO DE PRODUCTOS                     -->
-    <!-- ============================================================ -->
-    <main class="container py-5" id="catalogo">
-        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
-            <div>
-                <h2 class="h2 text-light mb-1" style="color: var(--scar-gold-accent) !important;">
-                    <i class="bi bi-shop me-2"></i>Nuestros Dulces y Salsas
-                </h2>
-                <p class="text-light opacity-75 mb-0">Explora la oferta de productos disponibles en el catálogo.</p>
+    <!-- CATALOGO FRASCOS 130G ($10.000 COP) -->
+    <section id="cat130" class="py-5">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4 border-bottom border-secondary pb-2">
+                <div>
+                    <h3 class="fw-bold text-warning mb-0"><i class="bi bi-cup-straw me-2"></i>Línea Personal (Frascos 130g)</h3>
+                    <p class="text-light opacity-75 small mb-0">Presentación individual práctica • $10.000 COP c/u</p>
+                </div>
+                <span class="badge badge-price px-3 py-2">$10.000 COP</span>
             </div>
-            <!-- Filtros por categoría -->
-            <div class="btn-group" role="group" aria-label="Filtros">
-                <button type="button" class="btn btn-sm btn-outline-warning active">Todos</button>
-                <button type="button" class="btn btn-sm btn-outline-warning">Quesos Crema</button>
-                <button type="button" class="btn btn-sm btn-outline-warning">Salsas Frutales</button>
-                <button type="button" class="btn btn-sm btn-outline-warning">Combos</button>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+                <!-- PRODUCTO 1: FEIJOA 130G -->
+                <div class="col">
+                    <div class="product-card h-100 p-3 text-center d-flex flex-column justify-content-between">
+                        <div>
+                            <img src="assets/img/Feijoa(130g).png" class="img-fluid rounded mb-3" alt="Queso Feijoa" style="max-height: 140px; object-fit: contain;" onerror="this.src='https://via.placeholder.com/150/2D5B25/C6AF69?text=Feijoa+130g'">
+                            <h5 class="fw-bold text-light">Queso Crema Feijoa</h5>
+                            <p class="small text-light opacity-75">Sabor autóctono suave con trozos de feijoa artesanal.</p>
+                        </div>
+                        <div>
+                            <div class="fw-bold text-warning fs-5 mb-2">$10.000 COP</div>
+                            <button class="btn btn-success btn-sm w-100 fw-bold" onclick="agregarAlCarrito('Queso Crema Feijoa 130g', 10000)">
+                                <i class="bi bi-cart-plus me-1"></i> Comprar / Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 2: CAFE 130G -->
+                <div class="col">
+                    <div class="product-card h-100 p-3 text-center d-flex flex-column justify-content-between">
+                        <div>
+                            <img src="assets/img/Café(130g).png" class="img-fluid rounded mb-3" alt="Queso Café" style="max-height: 140px; object-fit: contain;" onerror="this.src='https://via.placeholder.com/150/2D5B25/C6AF69?text=Café+130g'">
+                            <h5 class="fw-bold text-light">Queso Crema Café</h5>
+                            <p class="small text-light opacity-75">Edición especial infusionada con café suave colombiano.</p>
+                        </div>
+                        <div>
+                            <div class="fw-bold text-warning fs-5 mb-2">$10.000 COP</div>
+                            <button class="btn btn-success btn-sm w-100 fw-bold" onclick="agregarAlCarrito('Queso Crema Café 130g', 10000)">
+                                <i class="bi bi-cart-plus me-1"></i> Comprar / Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 3: DURAZNO 130G -->
+                <div class="col">
+                    <div class="product-card h-100 p-3 text-center d-flex flex-column justify-content-between">
+                        <div>
+                            <img src="assets/img/Durazno(130g).png" class="img-fluid rounded mb-3" alt="Queso Durazno" style="max-height: 140px; object-fit: contain;" onerror="this.src='https://via.placeholder.com/150/2D5B25/C6AF69?text=Durazno+130g'">
+                            <h5 class="fw-bold text-light">Queso Crema Durazno</h5>
+                            <p class="small text-light opacity-75">Dulce balanceado con trocitos de durazno natural.</p>
+                        </div>
+                        <div>
+                            <div class="fw-bold text-warning fs-5 mb-2">$10.000 COP</div>
+                            <button class="btn btn-success btn-sm w-100 fw-bold" onclick="agregarAlCarrito('Queso Crema Durazno 130g', 10000)">
+                                <i class="bi bi-cart-plus me-1"></i> Comprar / Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 4: MARACUYA 130G -->
+                <div class="col">
+                    <div class="product-card h-100 p-3 text-center d-flex flex-column justify-content-between">
+                        <div>
+                            <img src="assets/img/Maracuya(130g).png" class="img-fluid rounded mb-3" alt="Queso Maracuyá" style="max-height: 140px; object-fit: contain;" onerror="this.src='https://via.placeholder.com/150/2D5B25/C6AF69?text=Maracuyá+130g'">
+                            <h5 class="fw-bold text-light">Queso Crema Maracuyá</h5>
+                            <p class="small text-light opacity-75">Sabor agridulce refrescante con mermelada de maracuyá.</p>
+                        </div>
+                        <div>
+                            <div class="fw-bold text-warning fs-5 mb-2">$10.000 COP</div>
+                            <button class="btn btn-success btn-sm w-100 fw-bold" onclick="agregarAlCarrito('Queso Crema Maracuyá 130g', 10000)">
+                                <i class="bi bi-cart-plus me-1"></i> Comprar / Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <!-- GRID DE TARJETAS DE PRODUCTO DE DULCE DIP -->
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <!-- CATALOGO FRASCOS 230G ($20.000 COP) -->
+    <section id="cat230" class="py-5 bg-dark">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4 border-bottom border-secondary pb-2">
+                <div>
+                    <h3 class="fw-bold text-warning mb-0"><i class="bi bi-box2-heart me-2"></i>Línea Familiar (Frascos 230g)</h3>
+                    <p class="text-light opacity-75 small mb-0">Mayor contenido para compartir en familia • $20.000 COP c/u</p>
+                </div>
+                <span class="badge badge-price px-3 py-2">$20.000 COP</span>
+            </div>
 
-            <!-- Producto 1: Feijoa -->
-            <div class="col">
-                <div class="card h-100 shadow-sm border-secondary text-light" style="background-color: var(--scar-card-bg);">
-                    <div class="position-relative">
-                        <img src="assets/img/feijoa.png" class="card-img-top p-3 rounded" alt="Queso Crema Feijoa" style="height: 220px; object-fit: contain; background-color: rgba(0,0,0,0.2);" onerror="this.src='https://via.placeholder.com/300x200/303A44/C6AF69?text=Queso+Feijoa'">
-                        <span class="position-absolute top-0 start-0 m-3 badge bg-success">Disponible</span>
-                        <span class="position-absolute top-0 end-0 m-3 badge text-dark" style="background-color: var(--scar-gold-accent);">SKU: DUL-QC-001</span>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+                <!-- FEIJOA 230G -->
+                <div class="col">
+                    <div class="product-card h-100 p-3 text-center d-flex flex-column justify-content-between">
+                        <div>
+                            <img src="assets/img/Feijoa(230g).png" class="img-fluid rounded mb-3" alt="Queso Feijoa 230g" style="max-height: 140px; object-fit: contain;" onerror="this.src='https://via.placeholder.com/150/2D5B25/C6AF69?text=Feijoa+230g'">
+                            <h5 class="fw-bold text-light">Queso Crema Feijoa (230g)</h5>
+                            <p class="small text-light opacity-75">Edición familiar de frasco grande con extra pulpa.</p>
+                        </div>
+                        <div>
+                            <div class="fw-bold text-warning fs-5 mb-2">$20.000 COP</div>
+                            <button class="btn btn-success btn-sm w-100 fw-bold" onclick="agregarAlCarrito('Queso Crema Feijoa 230g', 20000)">
+                                <i class="bi bi-cart-plus me-1"></i> Comprar / Agregar
+                            </button>
+                        </div>
                     </div>
-                    <div class="card-body d-flex flex-column">
-                        <small class="text-warning text-uppercase fw-bold mb-1">Queso Crema Artesanal</small>
-                        <h5 class="card-title text-light fw-bold">Queso Crema Feijoa</h5>
-                        <p class="card-text text-light opacity-75 flex-grow-1 fs-6">
-                            Queso crema suave e infusionado con mermelada natural de feijoa artesanal. Presentación especial de 130g perfecta para untar en galletas y pan.
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-secondary">
-                            <span class="fs-4 fw-bold" style="color: var(--scar-gold-accent);">$12.000 COP</span>
-                            <button class="btn btn-sm text-white fw-bold px-3" style="background-color: var(--scar-green-main);" data-bs-toggle="modal" data-bs-target="#modalFeijoa">
-                                <i class="bi bi-eye me-1"></i> Ver Detalle
+                </div>
+
+                <!-- FRESA 230G -->
+                <div class="col">
+                    <div class="product-card h-100 p-3 text-center d-flex flex-column justify-content-between">
+                        <div>
+                            <img src="assets/img/Fresa(230g).png" class="img-fluid rounded mb-3" alt="Queso Fresa 230g" style="max-height: 140px; object-fit: contain;" onerror="this.src='https://via.placeholder.com/150/2D5B25/C6AF69?text=Fresa+230g'">
+                            <h5 class="fw-bold text-light">Queso Crema Fresa (230g)</h5>
+                            <p class="small text-light opacity-75">Sabor clásico suave con trozos de fresas seleccionadas.</p>
+                        </div>
+                        <div>
+                            <div class="fw-bold text-warning fs-5 mb-2">$20.000 COP</div>
+                            <button class="btn btn-success btn-sm w-100 fw-bold" onclick="agregarAlCarrito('Queso Crema Fresa 230g', 20000)">
+                                <i class="bi bi-cart-plus me-1"></i> Comprar / Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MORA 230G -->
+                <div class="col">
+                    <div class="product-card h-100 p-3 text-center d-flex flex-column justify-content-between">
+                        <div>
+                            <img src="assets/img/Mora(230g).png" class="img-fluid rounded mb-3" alt="Queso Mora 230g" style="max-height: 140px; object-fit: contain;" onerror="this.src='https://via.placeholder.com/150/2D5B25/C6AF69?text=Mora+230g'">
+                            <h5 class="fw-bold text-light">Queso Crema Mora (230g)</h5>
+                            <p class="small text-light opacity-75">Toque silvestre exquisito de mora andina en crema.</p>
+                        </div>
+                        <div>
+                            <div class="fw-bold text-warning fs-5 mb-2">$20.000 COP</div>
+                            <button class="btn btn-success btn-sm w-100 fw-bold" onclick="agregarAlCarrito('Queso Crema Mora 230g', 20000)">
+                                <i class="bi bi-cart-plus me-1"></i> Comprar / Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PIMENTON 230G -->
+                <div class="col">
+                    <div class="product-card h-100 p-3 text-center d-flex flex-column justify-content-between">
+                        <div>
+                            <img src="assets/img/Pimenton(230g).png" class="img-fluid rounded mb-3" alt="Queso Pimentón 230g" style="max-height: 140px; object-fit: contain;" onerror="this.src='https://via.placeholder.com/150/2D5B25/C6AF69?text=Pimentón+230g'">
+                            <h5 class="fw-bold text-light">Queso Crema Pimentón</h5>
+                            <p class="small text-light opacity-75">Línea gourmet agridulce ideal para pasabocas y reuniones.</p>
+                        </div>
+                        <div>
+                            <div class="fw-bold text-warning fs-5 mb-2">$20.000 COP</div>
+                            <button class="btn btn-success btn-sm w-100 fw-bold" onclick="agregarAlCarrito('Queso Crema Pimentón 230g', 20000)">
+                                <i class="bi bi-cart-plus me-1"></i> Comprar / Agregar
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Producto 2: Durazno -->
-            <div class="col">
-                <div class="card h-100 shadow-sm border-secondary text-light" style="background-color: var(--scar-card-bg);">
-                    <div class="position-relative">
-                        <img src="assets/img/durazno.png" class="card-img-top p-3 rounded" alt="Queso Crema Durazno" style="height: 220px; object-fit: contain; background-color: rgba(0,0,0,0.2);" onerror="this.src='https://via.placeholder.com/300x200/303A44/C6AF69?text=Queso+Durazno'">
-                        <span class="position-absolute top-0 start-0 m-3 badge bg-success">Disponible</span>
-                        <span class="position-absolute top-0 end-0 m-3 badge text-dark" style="background-color: var(--scar-gold-accent);">SKU: DUL-QC-002</span>
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                        <small class="text-warning text-uppercase fw-bold mb-1">Queso Crema Artesanal</small>
-                        <h5 class="card-title text-light fw-bold">Queso Crema Durazno</h5>
-                        <p class="card-text text-light opacity-75 flex-grow-1 fs-6">
-                            Deliciosa mezcla de queso crema suave con trozos de durazno almibarado en casa. Presentación de 130g en envase hermético listo para disfrutar.
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-secondary">
-                            <span class="fs-4 fw-bold" style="color: var(--scar-gold-accent);">$12.000 COP</span>
-                            <button class="btn btn-sm text-white fw-bold px-3" style="background-color: var(--scar-green-main);" data-bs-toggle="modal" data-bs-target="#modalDurazno">
-                                <i class="bi bi-eye me-1"></i> Ver Detalle
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Producto 3: Café -->
-            <div class="col">
-                <div class="card h-100 shadow-sm border-secondary text-light" style="background-color: var(--scar-card-bg);">
-                    <div class="position-relative">
-                        <img src="assets/img/cafe.png" class="card-img-top p-3 rounded" alt="Queso Crema Café" style="height: 220px; object-fit: contain; background-color: rgba(0,0,0,0.2);" onerror="this.src='https://via.placeholder.com/300x200/303A44/C6AF69?text=Queso+Cafe'">
-                        <span class="position-absolute top-0 start-0 m-3 badge bg-success">Disponible</span>
-                        <span class="position-absolute top-0 end-0 m-3 badge text-dark" style="background-color: var(--scar-gold-accent);">SKU: DUL-QC-003</span>
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                        <small class="text-warning text-uppercase fw-bold mb-1">Edición Especial</small>
-                        <h5 class="card-title text-light fw-bold">Queso Crema Café</h5>
-                        <p class="card-text text-light opacity-75 flex-grow-1 fs-6">
-                            Sabor de autor infusionado con esencia de café 100% colombiano. Equilibrio ideal entre dulzura, toque tostado de café y textura cremosa.
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-secondary">
-                            <span class="fs-4 fw-bold" style="color: var(--scar-gold-accent);">$13.000 COP</span>
-                            <button class="btn btn-sm text-white fw-bold px-3" style="background-color: var(--scar-green-main);" data-bs-toggle="modal" data-bs-target="#modalCafe">
-                                <i class="bi bi-eye me-1"></i> Ver Detalle
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Producto 4: Salsa Maracuyá -->
-            <div class="col">
-                <div class="card h-100 shadow-sm border-secondary text-light" style="background-color: var(--scar-card-bg);">
-                    <div class="position-relative">
-                        <img src="assets/img/maracuya.png" class="card-img-top p-3 rounded" alt="Salsa de Maracuyá" style="height: 220px; object-fit: contain; background-color: rgba(0,0,0,0.2);" onerror="this.src='https://via.placeholder.com/300x200/303A44/C6AF69?text=Salsa+Maracuya'">
-                        <span class="position-absolute top-0 start-0 m-3 badge bg-success">Disponible</span>
-                        <span class="position-absolute top-0 end-0 m-3 badge text-dark" style="background-color: var(--scar-gold-accent);">SKU: DUL-SF-001</span>
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                        <small class="text-warning text-uppercase fw-bold mb-1">Salsa Frutal</small>
-                        <h5 class="card-title text-light fw-bold">Salsa de Maracuyá</h5>
-                        <p class="card-text text-light opacity-75 flex-grow-1 fs-6">
-                            Reducción agridulce concentrada de maracuyá fresca (200g). Excelente acompañante para aderezar postres, tortas y tablas de queso.
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-secondary">
-                            <span class="fs-4 fw-bold" style="color: var(--scar-gold-accent);">$8.000 COP</span>
-                            <button class="btn btn-sm text-white fw-bold px-3" style="background-color: var(--scar-green-main);" data-bs-toggle="modal" data-bs-target="#modalMaracuya">
-                                <i class="bi bi-eye me-1"></i> Ver Detalle
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Producto 5: Combo Dúo -->
-            <div class="col">
-                <div class="card h-100 shadow-sm border-secondary text-light" style="background-color: var(--scar-card-bg);">
-                    <div class="position-relative">
-                        <img src="assets/img/combo_duo.png" class="card-img-top p-3 rounded" alt="Combo Dúo Artesanal" style="height: 220px; object-fit: contain; background-color: rgba(0,0,0,0.2);" onerror="this.src='https://via.placeholder.com/300x200/303A44/C6AF69?text=Combo+Duo'">
-                        <span class="position-absolute top-0 start-0 m-3 badge bg-success">Disponible</span>
-                        <span class="position-absolute top-0 end-0 m-3 badge text-dark" style="background-color: var(--scar-gold-accent);">SKU: DUL-CB-001</span>
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                        <small class="text-warning text-uppercase fw-bold mb-1">Combo Especial</small>
-                        <h5 class="card-title text-light fw-bold">Combo Dúo Artesanal</h5>
-                        <p class="card-text text-light opacity-75 flex-grow-1 fs-6">
-                            Pack promocional: Incluye 1 Queso Crema Feijoa (130g) + 1 Queso Crema Durazno (130g) en caja de regalo.
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-secondary">
-                            <span class="fs-4 fw-bold" style="color: var(--scar-gold-accent);">$22.000 COP</span>
-                            <button class="btn btn-sm text-white fw-bold px-3" style="background-color: var(--scar-green-main);" data-bs-toggle="modal" data-bs-target="#modalCombo">
-                                <i class="bi bi-eye me-1"></i> Ver Detalle
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
-    </main>
+    </section>
 
-    <!-- ============================================================ -->
-    <!-- MODAL INTERACTIVO DE EJEMPLO PARA DETALLE DE PRODUCTO          -->
-    <!-- ============================================================ -->
-    <div class="modal fade" id="modalFeijoa" tabindex="-1" aria-labelledby="modalFeijoaLabel" aria-hidden="true">
+    <!-- FOOTER -->
+    <footer class="bg-dark text-center text-light py-4 border-top border-secondary">
+        <div class="container">
+            <p class="mb-1 fw-bold text-warning">Dulce Dip • Queso Crema Artesanal</p>
+            <p class="small opacity-75 mb-0">Sistema SCAR v3.1 — Desarrollado para el Proyecto de Formación SENA</p>
+        </div>
+    </footer>
+
+    <!-- MODAL CARRITO DE COMPRAS -->
+    <div class="modal fade" id="modalCarrito" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content text-light" style="background-color: var(--scar-card-bg); border: 1px solid var(--scar-gold-accent);">
+            <div class="modal-content bg-dark text-light border-warning">
                 <div class="modal-header border-secondary">
-                    <h5 class="modal-title fw-bold" id="modalFeijoaLabel" style="color: var(--scar-gold-accent);">
-                        <i class="bi bi-info-circle me-2"></i>Queso Crema Feijoa
-                    </h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title fw-bold text-warning"><i class="bi bi-cart3 me-2"></i>Tu Carrito de Compras</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="text-center mb-3">
-                        <img src="assets/img/feijoa.png" class="img-fluid rounded p-2" style="max-height: 180px;" alt="Feijoa" onerror="this.src='https://via.placeholder.com/200/303A44/C6AF69?text=Queso+Feijoa'">
+                    <div id="cartItemsList" class="mb-3">
+                        <p class="text-center opacity-50 my-3">El carrito está vacío. Agrega tus dulces preferidos.</p>
                     </div>
-                    <ul class="list-group list-group-flush bg-transparent">
-                        <li class="list-group-item bg-transparent text-light border-secondary"><strong>Código SKU:</strong> DUL-QC-001</li>
-                        <li class="list-group-item bg-transparent text-light border-secondary"><strong>Categoría:</strong> Quesos Crema Artesanales</li>
-                        <li class="list-group-item bg-transparent text-light border-secondary"><strong>Contenido Neto:</strong> 130 gramos</li>
-                        <li class="list-group-item bg-transparent text-light border-secondary"><strong>Precio Unidad:</strong> <span class="fw-bold fs-5" style="color: var(--scar-gold-accent);">$12.000 COP</span></li>
-                        <li class="list-group-item bg-transparent text-light border-secondary"><strong>Estado Inventario:</strong> En Stock (50 unidades)</li>
-                    </ul>
-                    <div class="alert alert-dark border-warning mt-3 mb-0 text-light small">
-                        <i class="bi bi-shield-check me-1 text-warning"></i> Para comprar o gestionar tus pedidos en línea, inicia sesión en la plataforma SCAR.
+                    <div class="d-flex justify-content-between align-items-center border-top border-secondary pt-3">
+                        <span class="fw-bold fs-5">Total A Cobrar:</span>
+                        <span class="fw-bold fs-4 text-warning" id="cartTotalVal">$0 COP</span>
                     </div>
                 </div>
                 <div class="modal-footer border-secondary">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <a href="pages/auth/login.html" class="btn text-white fw-bold" style="background-color: var(--scar-green-main);">
-                        <i class="bi bi-box-arrow-in-right me-1"></i> Iniciar Sesión para Comprar
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir Comprando</button>
+                    <button type="button" class="btn btn-success fw-bold" onclick="procesarCompraCliente()">
+                        <i class="bi bi-check-circle me-1"></i> Finalizar Compra
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL LOGIN REQUERIDO PARA CLIENTE -->
+    <div class="modal fade" id="modalLoginRequired" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-light border-danger">
+                <div class="modal-header border-secondary bg-danger text-white">
+                    <h5 class="modal-title fw-bold"><i class="bi bi-person-lock me-2"></i>Iniciar Sesión Requerido</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center py-4">
+                    <i class="bi bi-shield-lock fs-1 text-warning mb-3 d-block"></i>
+                    <h5 class="fw-bold mb-2">Para realizar tu compra debes iniciar sesión</h5>
+                    <p class="small text-light opacity-75 mb-0">Inicia sesión con tu cuenta de Cliente o regístrate para registrar tu dirección de domicilio.</p>
+                </div>
+                <div class="modal-footer border-secondary justify-content-center">
+                    <a href="pages/auth/login.html?role=cliente" class="btn btn-warning fw-bold px-4">
+                        <i class="bi bi-box-arrow-in-right me-1"></i> Iniciar Sesión como Cliente
+                    </a>
+                    <a href="pages/modules/users/user_register.html" class="btn btn-outline-light px-3">
+                        Crear Cuenta
                     </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ============================================================ -->
-    <!-- SECCIÓN NOSOTROS / PROYECTO SCAR                             -->
-    <!-- ============================================================ -->
-    <section class="py-5 border-top border-secondary" id="nosotros" style="background-color: rgba(0,0,0,0.2);">
-        <div class="container text-center">
-            <h3 class="fw-bold mb-3" style="color: var(--scar-gold-accent);">Sobre Dulce Dip y Sistema SCAR</h3>
-            <p class="text-light opacity-75 mx-auto mb-0" style="max-width: 800px;">
-                Dulce Dip es una microempresa dedicada a la elaboración artesanal de quesos crema con frutas. El sistema <strong>SCAR (Sistema de Control, Administración y Registro)</strong> optimiza la gestión de usuarios, catálogo, control de stock en inventario, registro de ventas y logística de domicilios.
-            </p>
-        </div>
-    </section>
-
-    <!-- ============================================================ -->
-    <!-- PIE DE PÁGINA (FOOTER)                                       -->
-    <!-- ============================================================ -->
-    <footer class="py-4 text-center text-light border-top border-secondary" id="contacto" style="background-color: var(--scar-bg-dark);">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-4 text-md-start mb-2 mb-md-0">
-                    <span class="fw-bold" style="color: var(--scar-gold-accent);">Dulce Dip &copy; 2026</span>
-                    <br><small class="opacity-50">Bogotá D.C., Colombia</small>
+    <!-- MODAL CONFIRMACION PEDIDO REGISTRADO -->
+    <div class="modal fade" id="modalPedidoExitoso" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-light border-success">
+                <div class="modal-header border-secondary bg-success text-white">
+                    <h5 class="modal-title fw-bold"><i class="bi bi-check-circle me-2"></i>¡Pedido Registrado con Éxito!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="col-md-4 mb-2 mb-md-0">
-                    <small class="opacity-75">SENA CEET - Proyecto ADSO</small>
-                    <br><small class="text-warning">Sistema SCAR v3.1</small>
+                <div class="modal-body text-center py-4">
+                    <i class="bi bi-bag-check fs-1 text-success mb-3 d-block"></i>
+                    <h4 class="fw-bold text-warning">Orden #VEN-1045</h4>
+                    <p class="mb-2">Gracias por comprar en <strong>Dulce Dip</strong>.</p>
+                    <p class="small text-light opacity-75">Tu pedido de Queso Crema ha sido registrado en el sistema SCAR y asignado al módulo de domicilios para entrega.</p>
                 </div>
-                <div class="col-md-4 text-md-end">
-                    <a href="pages/auth/login.html" class="text-warning text-decoration-none small">
-                        <i class="bi bi-person-badge me-1"></i> Acceso Administrador / Vendedor
-                    </a>
+                <div class="modal-footer border-secondary">
+                    <button type="button" class="btn btn-success fw-bold w-100" data-bs-dismiss="modal">Aceptar & Continuar</button>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
 
-    <!-- Bootstrap 5 JavaScript Bundle -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let carrito = [];
+        let totalVal = 0;
+
+        // VERIFICAR SI EL CLIENTE INICIÓ SESIÓN (URL o localStorage)
+        const urlParams = new URLSearchParams(window.location.search);
+        const loggedClient = urlParams.get('logged') === 'cliente' || localStorage.getItem('scar_user_role') === 'cliente';
+
+        if (loggedClient) {
+            localStorage.setItem('scar_user_role', 'cliente');
+            document.getElementById('authHeaderArea').innerHTML = `
+                <button class="btn btn-outline-warning btn-sm position-relative" data-bs-toggle="modal" data-bs-target="#modalCarrito">
+                    <i class="bi bi-cart3 fs-5"></i> Carrito
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCount">0</span>
+                </button>
+                <div class="dropdown">
+                    <button class="btn btn-success btn-sm dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-check-fill me-1"></i> Hola, Cliente
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="pages/modules/users/user_update.html"><i class="bi bi-person me-2"></i>Mi Perfil</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><button class="dropdown-item text-danger" onclick="cerrarSesionCliente()"><i class="bi bi-box-arrow-left me-2"></i>Cerrar Sesión</button></li>
+                    </ul>
+                </div>
+            `;
+        }
+
+        function agregarAlCarrito(nombre, precio) {
+            carrito.push({ nombre, precio });
+            totalVal += precio;
+            actualizarCarritoUI();
+            
+            // Abrir modal de carrito
+            const modalC = new bootstrap.Modal(document.getElementById('modalCarrito'));
+            modalC.show();
+        }
+
+        function actualizarCarritoUI() {
+            document.getElementById('cartCount').innerText = carrito.length;
+            const itemsDiv = document.getElementById('cartItemsList');
+            if (carrito.length === 0) {
+                itemsDiv.innerHTML = '<p class="text-center opacity-50 my-3">El carrito está vacío.</p>';
+            } else {
+                let html = '<ul class="list-group list-group-flush bg-dark">';
+                carrito.forEach((item, idx) => {
+                    html += `<li class="list-group-item bg-dark text-light border-secondary d-flex justify-content-between align-items-center">
+                        <span>${item.nombre}</span>
+                        <span class="fw-bold text-warning">$${item.precio.toLocaleString('es-CO')} COP</span>
+                    </li>`;
+                });
+                html += '</ul>';
+                itemsDiv.innerHTML = html;
+            }
+            document.getElementById('cartTotalVal').innerText = '$' + totalVal.toLocaleString('es-CO') + ' COP';
+        }
+
+        function procesarCompraCliente() {
+            // Cerrar carrito
+            const modalC = bootstrap.Modal.getInstance(document.getElementById('modalCarrito'));
+            if(modalC) modalC.hide();
+
+            // Si NO ha iniciado sesión, pedir Login
+            if (!loggedClient) {
+                setTimeout(() => {
+                    const modalL = new bootstrap.Modal(document.getElementById('modalLoginRequired'));
+                    modalL.show();
+                }, 300);
+            } else {
+                // Si está logueado como cliente, confirmar compra
+                setTimeout(() => {
+                    const modalOk = new bootstrap.Modal(document.getElementById('modalPedidoExitoso'));
+                    modalOk.show();
+                    carrito = [];
+                    totalVal = 0;
+                    actualizarCarritoUI();
+                }, 300);
+            }
+        }
+
+        function cerrarSesionCliente() {
+            localStorage.removeItem('scar_user_role');
+            window.location.href = 'index.html';
+        }
+    </script>
 </body>
 </html>

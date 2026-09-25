@@ -3,157 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión - Sistema SCAR & Dulce Dip</title>
-    
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    
-    <!-- Estilos Globales SCAR -->
+    <title>Iniciar Sesión - Sistema SCAR</title>
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/styles(Login).css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">   
 </head>
-<body class="mod-public d-flex align-items-center justify-content-center min-vh-100 py-4" style="background: linear-gradient(135deg, #182825 0%, #202A28 50%, #111A18 100%);">
+<body>
 
-    <div class="container" style="max-width: 950px;">
-        <div class="card shadow-lg border-secondary overflow-hidden text-light" style="background-color: var(--scar-card-bg, #263330); border-radius: 16px;">
-            <div class="row g-0">
-                
-                <!-- Columna Izquierda: Ilustración & Marca SCAR -->
-                <div class="col-lg-5 d-none d-lg-flex flex-column justify-content-between p-5 text-center position-relative" style="background: linear-gradient(180deg, #121E1C 0%, #1C2D2A 100%); border-right: 1px solid rgba(198, 175, 105, 0.2);">
-                    <div>
-                        <a href="../../index.html" class="text-decoration-none d-inline-block mb-3">
-                            <span class="badge px-3 py-2 text-dark fw-bold" style="background-color: #C6AF69;">
-                                <i class="bi bi-arrow-left me-1"></i> Volver al Catálogo Público
-                            </span>
-                        </a>
-                        <h3 class="fw-bold mt-2" style="color: #C6AF69;">Sistema SCAR</h3>
-                        <p class="small text-light opacity-75">Plataforma de Control, Administración y Registro de Dulce Dip</p>
-                    </div>
-
-                    <!-- Mascota / Logo Panda SCAR -->
-                    <div class="my-4 text-center">
-                        <img src="../../assets/img/logo.png" alt="Oso Panda SCAR" class="img-fluid rounded-circle p-2 shadow-lg border border-warning" style="width: 170px; height: 170px; object-fit: cover; background-color: #182825;" onerror="this.src='https://via.placeholder.com/170/2D5B25/C6AF69?text=Panda+SCAR'">
-                    </div>
-
-                    <div>
-                        <p class="small text-light opacity-50 mb-0">Gestión de Usuarios, Ventas, Inventarios y Domicilios</p>
-                        <small class="text-warning opacity-75">Versión 3.1 • SENA ADSO</small>
-                    </div>
-                </div>
-
-                <!-- Columna Derecha: Formulario de Autenticación -->
-                <div class="col-lg-7 p-4 p-md-5 d-flex flex-column justify-content-center">
-                    
-                    <!-- Encabezado Móvil -->
-                    <div class="d-lg-none text-center mb-4">
-                        <h4 class="fw-bold" style="color: #C6AF69;">Sistema SCAR - Dulce Dip</h4>
-                        <a href="../../index.html" class="small text-warning text-decoration-none"><i class="bi bi-arrow-left"></i> Volver al inicio</a>
-                    </div>
-
-                    <div class="mb-4">
-                        <h2 class="fw-bold mb-1 text-light">Iniciar Sesión</h2>
-                        <p class="text-light opacity-75 small">Ingresa tus credenciales de usuario para ingresar al sistema.</p>
-                    </div>
-
-                    <!-- Alert de Notificación/Simulación -->
-                    <div class="alert alert-dark border-warning text-light small d-flex align-items-center gap-2 mb-4" role="alert">
-                        <i class="bi bi-info-circle-fill text-warning fs-5"></i>
-                        <div>
-                            <strong>Simulación de Navegación:</strong> Selecciona el perfil deseado abajo para probar el ingreso directo a su respectivo Dashboard.
-                        </div>
-                    </div>
-
-                    <form id="loginForm" onsubmit="event.preventDefault(); simularLogin();">
-                        
-                        <!-- Selección de Perfil / Rol para la prueba navegable -->
-                        <div class="mb-3">
-                            <label for="selectRol" class="form-label text-warning small fw-bold">Seleccionar Perfil / Rol (Demostración)</label>
-                            <div class="input-group">
-                                <span class="input-group-text bg-dark border-secondary text-warning"><i class="bi bi-person-badge"></i></span>
-                                <select class="form-select bg-dark text-light border-secondary" id="selectRol" required>
-                                    <option value="admin" selected>Administrador (Doña Neila / Gestión Total)</option>
-                                    <option value="vendedor">Vendedor (Punto de Venta e Inventario)</option>
-                                    <option value="repartidor">Repartidor (Vista Móvil Domicilios)</option>
-                                    <option value="cliente">Cliente (Mi Cuenta / Mis Pedidos)</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- Campo Correo -->
-                        <div class="mb-3">
-                            <label for="inputEmail" class="form-label text-light small">Correo Electrónico</label>
-                            <div class="input-group">
-                                <span class="input-group-text bg-dark border-secondary text-light"><i class="bi bi-envelope"></i></span>
-                                <input type="email" class="form-control bg-dark text-light border-secondary" id="inputEmail" placeholder="usuario@dulcedip.com" value="admin@dulcedip.com" required>
-                            </div>
-                        </div>
-
-                        <!-- Campo Contraseña -->
-                        <div class="mb-3">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <label for="inputPassword" class="form-label text-light small">Contraseña</label>
-                                <a href="#" class="small text-warning text-decoration-none opacity-75">¿Olvidaste tu contraseña?</a>
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-text bg-dark border-secondary text-light"><i class="bi bi-lock"></i></span>
-                                <input type="password" class="form-control bg-dark text-light border-secondary" id="inputPassword" value="12345678" required>
-                                <button class="btn btn-outline-secondary text-light" type="button" onclick="togglePass()"><i class="bi bi-eye" id="passIcon"></i></button>
-                            </div>
-                        </div>
-
-                        <!-- Recordarme -->
-                        <div class="form-check mb-4">
-                            <input class="form-check-input bg-dark border-secondary" type="checkbox" id="rememberMe" checked>
-                            <label class="form-check-label text-light opacity-75 small" for="rememberMe">
-                                Recordar mi sesión en este dispositivo
-                            </label>
-                        </div>
-
-                        <!-- Botón de Ingreso -->
-                        <button type="submit" class="btn btn-lg w-100 fw-bold text-white shadow-sm mb-3" style="background: linear-gradient(180deg, #2D5B25 0%, #1E3F18 100%); border: 1px solid #C6AF69;">
-                            <i class="bi bi-box-arrow-in-right me-2"></i> Ingresar al Sistema
-                        </button>
-
-                        <div class="text-center mt-3">
-                            <span class="small text-light opacity-75">¿No tienes una cuenta aún?</span>
-                            <a href="register.html" class="small fw-bold text-warning text-decoration-none ms-1">Regístrate aquí</a>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
+    <div class="login-card">
+        <div class="text-center mb-4">
+            <img src="../../assets/img/Logo software.png" alt="Logo SCAR" width="80" height="84" class="mb-2" onerror="this.src='../../assets/img/Logo empresa.jpg'">
+            <h4 class="fw-bold text-warning mb-1">SISTEMA SCAR</h4>
+            <p class="small text-light opacity-75">Control & Administración • Dulce Dip</p>
         </div>
+
+        <form id="formLogin" onsubmit="ejecutarIngreso(event)">
+            <div class="mb-3">
+                <label class="form-label small text-light fw-bold">Seleccionar Rol de Acceso</label>
+                <select class="form-select bg-dark text-light border-secondary" id="selectRol" required>
+                    <option value="admin" selected>Administrador (Doña Neila)</option>
+                    <option value="vendedor">Vendedor</option>
+                    <option value="repartidor">Repartidor / Domiciliario</option>
+                    <option value="cliente">Cliente</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label small text-light fw-bold">Usuario / Correo</label>
+                <input type="text" class="form-control bg-dark text-light border-secondary" id="inputUser" value="usuario@dulcedip.com" required>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label small text-light fw-bold">Contraseña</label>
+                <input type="password" class="form-control bg-dark text-light border-secondary" id="inputPass" value="123456" required>
+            </div>
+
+            <button type="submit" class="btn btn-success fw-bold w-100 py-2 mb-3" style="border: 1px solid #C6AF69;">
+                <i class="bi bi-box-arrow-in-right me-1"></i> INGRESAR AL SISTEMA
+            </button>
+
+            <div class="text-center">
+                <a href="../../index.html" class="small text-warning text-decoration-none">
+                    <i class="bi bi-arrow-left me-1"></i> Volver al Catálogo Público
+                </a>
+            </div>
+        </form>
     </div>
 
-    <!-- Script de Redirección según Rol -->
+    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
     <script>
-        function simularLogin() {
+        function ejecutarIngreso(e) {
+            e.preventDefault();
             const rol = document.getElementById('selectRol').value;
-            if (rol === 'admin') {
-                window.location.href = '../dashboards/admin_dashboard.html';
-            } else if (rol === 'repartidor') {
-                window.location.href = '../dashboards/repartidor_dashboard.html';
-            } else if (rol === 'vendedor') {
-                alert('Redirigiendo al Panel del Vendedor...');
-                window.location.href = '../dashboards/admin_dashboard.html';
-            } else {
-                alert('Redirigiendo al Catálogo de Compras del Cliente...');
-                window.location.href = '../../index.html#catalogo';
-            }
-        }
+            
+            localStorage.setItem('scar_user_role', rol);
 
-        function togglePass() {
-            const passInput = document.getElementById('inputPassword');
-            const passIcon = document.getElementById('passIcon');
-            if (passInput.type === 'password') {
-                passInput.type = 'text';
-                passIcon.className = 'bi bi-eye-slash';
-            } else {
-                passInput.type = 'password';
-                passIcon.className = 'bi bi-eye';
+            if (rol === 'admin') {
+                window.location.href = '../dashboard/admin_dashboard.html';
+            } else if (rol === 'vendedor') {
+                window.location.href = '../dashboard/venta_dashboard.html';
+            } else if (rol === 'repartidor') {
+                window.location.href = '../dashboard/domicilios_dashboard.html';
+            } else if (rol === 'cliente') {
+                window.location.href = '../../index.html?logged=cliente';
             }
         }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
