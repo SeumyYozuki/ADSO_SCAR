@@ -1,0 +1,22 @@
+body {
+    background-color: #121A18; 
+    color: #E2E8F0; 
+    font-family: system-ui, -apple-system, sans-serif;
+    padding-bottom: 70px; 
+}
+
+.app-header { 
+    background-color: #1A2825; 
+    border-bottom: 2px solid #C6AF69; 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000;
+}
+
+.delivery-card { 
+    background-color: #202D2A;
+    border: 1px solid rgba(198, 175, 105, 0.3); 
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+}

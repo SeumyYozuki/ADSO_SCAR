@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Ventas - SCAR Dulce Dip</title>
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/styles(Venta).css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">  
+</head>
+<body>
+
+    <div class="d-flex min-vh-100">
+        <!-- SIDEBAR DE VENDEDOR - SE MANTIENE EN SU PROPIO PANEL -->
+        <aside class="sidebar d-none d-md-flex flex-column justify-content-between p-3 position-fixed top-0 start-0 bottom-0 z-3">
+            <div>
+                <div class="d-flex align-items-center gap-2 px-2 py-3 mb-3 border-bottom border-secondary">
+                    <img src="../../assets/img/Logo software.png" alt="Logo SCAR" width="40" height="42" class="rounded border border-warning" onerror="this.src='../../assets/img/Logo empresa.jpg'">
+                    <div>
+                        <h6 class="fw-bold mb-0 text-light" style="color: #C6AF69 !important;">Sistema SCAR</h6>
+                        <small class="text-success opacity-90">Módulo Vendedor</small>
+                    </div>
+                </div>
+
+                <nav class="nav flex-column gap-1">
+                    <a href="venta_dashboard.html" class="nav-link-custom active"><i class="bi bi-cart-check" style="color: #C6AF69;"></i> Control de Ventas</a>
+                    <a href="../modules/order/order_register.html" class="nav-link-custom"><i class="bi bi-cart-plus"></i> Registrar Pedido</a>
+                    <a href="../modules/products/product_read.html" class="nav-link-custom"><i class="bi bi-box-seam"></i> Catálogo Productos</a>
+                    <a href="../modules/domicilios/delivery_read.html" class="nav-link-custom"><i class="bi bi-truck"></i> Estado Domicilios</a>
+                </nav>
+            </div>
+
+            <div class="border-top border-secondary pt-3 px-2">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                    <i class="bi bi-person-badge fs-4 text-success"></i>
+                    <div>
+                        <div class="fw-bold text-light small">Vendedor (Mostrador)</div>
+                        <small class="text-light opacity-50" style="font-size: 11px;">vendedor@dulcedip.com</small>
+                    </div>
+                </div>
+                <a href="../auth/login.html" class="btn btn-outline-danger btn-sm w-100 mt-1"><i class="bi bi-box-arrow-left me-1"></i> Cerrar Sesión</a>
+            </div>
+        </aside>
+
+        <main class="main-content flex-grow-1 p-4">
+            
+            <header class="d-flex justify-content-between align-items-center mb-4 bg-dark p-3 rounded-3 border border-secondary">
+                <div>
+                    <h4 class="fw-bold text-light mb-0">Módulo de Ventas & Toma de Pedidos</h4>
+                    <small class="text-success">Perfil Vendedor • Dulce Dip</small>
+                </div>
+                <a href="../modules/order/order_register.html" class="btn btn-success fw-bold px-3">
+                    <i class="bi bi-plus-circle me-1"></i> Nueva Venta
+                </a>
+            </header>
+
+            <div class="card bg-dark border-secondary text-light mb-4">
+                <div class="card-header bg-dark border-secondary py-3">
+                    <h5 class="fw-bold mb-0 text-warning"><i class="bi bi-receipt me-2"></i>Ventas & Pedidos Registrados</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-dark table-hover mb-0 align-middle">
+                            <thead>
+                                <tr class="text-secondary small">
+                                    <th># ID Venta</th>
+                                    <th>Cliente</th>
+                                    <th>Modalidad</th>
+                                    <th>Detalle Dulce</th>
+                                    <th>Total ($)</th>
+                                    <th>Estado</th>
+                                    <th class="text-center">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>#VEN-1042</strong></td>
+                                    <td>Laura Mendoza</td>
+                                    <td><span class="badge bg-info text-dark">🚚 Domicilio</span></td>
+                                    <td>2x Queso Feijoa (130g)</td>
+                                    <td class="fw-bold text-warning">$20.000 COP</td>
+                                    <td><span class="badge bg-warning text-dark">En Ruta</span></td>
+                                    <td class="text-center">
+                                        <a href="../modules/order/order_update.html" class="btn btn-sm btn-outline-warning"><i class="bi bi-pencil"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#VEN-1041</strong></td>
+                                    <td>Carlos Pérez</td>
+                                    <td><span class="badge bg-secondary">🏪 Mostrador</span></td>
+                                    <td>1x Queso Durazno (230g)</td>
+                                    <td class="fw-bold text-warning">$20.000 COP</td>
+                                    <td><span class="badge bg-success">Completado</span></td>
+                                    <td class="text-center">
+                                        <a href="../modules/order/order_update.html" class="btn btn-sm btn-outline-warning"><i class="bi bi-pencil"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

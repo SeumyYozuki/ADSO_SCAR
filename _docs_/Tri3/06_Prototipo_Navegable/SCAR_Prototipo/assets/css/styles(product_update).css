@@ -1,0 +1,35 @@
+body {
+    background-color: #1A2421;
+    color: #E2E8F0;
+    font-family: system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 260px;
+    background-color: #121A18;
+    min-height: 100vh;
+    border-right: 1px solid rgba(198, 175, 105, 0.2);
+}
+
+.nav-link-custom:hover {
+    background-color: #2D5B25 !important;
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+}
+
+@media (min-width: 768px) {
+    main.main-content {
+        margin-left: 260px !important;
+        width: calc(100% - 260px) !important;
+    }
+}
+
+.stat-card {
+    background-color: #24302C;
+    border: 1px solid rgba(198, 175, 105, 0.25);
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease-in-out;
+}
