@@ -62,4 +62,4 @@ Originalmente, los encargos de queso crema se registraban en una sola libreta/ho
 ---
 
 ## Diagrama Esquemático de Normalización
-![Diagrama de Normalización](diagrama_normalizacion_scar.png)
+![Diagrama de Normalización](Diagrama_Normalizacion_SCAR.png)
