@@ -1,0 +1,19 @@
+body {
+    background-color: #121A18;
+    color: #E2E8F0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.login-card {
+    background-color: #1A2421;
+    border: 1px solid rgba(198, 175, 105, 0.3);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 420px;
+    padding: 32px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}

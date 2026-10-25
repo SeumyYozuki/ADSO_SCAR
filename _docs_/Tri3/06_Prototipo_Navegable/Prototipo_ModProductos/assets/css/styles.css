@@ -1,0 +1,29 @@
+body { 
+  background-color: #121A18; 
+  color: #E2E8F0; 
+  font-family: system-ui, -apple-system, sans-serif; 
+}
+
+.hero-banner { 
+  background: linear-gradient(rgba(18,26,24,0.85), rgba(18,26,24,0.95)), url('assets/img/Feijoa(230g).png') center/cover; 
+  padding: 70px 0; 
+}
+
+.product-card { 
+  background-color: #1E2B27; 
+  border: 1px solid rgba(198,175,105,0.3); 
+  border-radius: 12px; 
+  transition: transform 0.2s; 
+}
+
+.product-card:hover { 
+  transform: translateY(-4px); 
+  border-color: #C6AF69; 
+}
+
+.badge-price { 
+  background-color: #2D5B25; 
+  color: #FFFFFF; 
+  font-size: 1.1rem; 
+  border: 1px solid #C6AF69; 
+}
